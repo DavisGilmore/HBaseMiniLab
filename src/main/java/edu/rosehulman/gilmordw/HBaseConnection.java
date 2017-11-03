@@ -137,8 +137,7 @@ public class HBaseConnection {
 		}
 		try {
 			Table tableIsbn = conn.getTable(TableName.valueOf("book_isbn"));
-			Delete delIsbn = new Delete(Bytes.toBytes(isbn));
-			tableIsbn.delete(delIsbn);
+			
 
 			Get get = new Get(Bytes.toBytes(isbn));
 			get.addColumn(Bytes.toBytes("book"), Bytes.toBytes("title"));
@@ -154,6 +153,8 @@ public class HBaseConnection {
 			Table tableNumPages = conn.getTable(TableName.valueOf("book_num_pages"));
 			Delete delNumPages = new Delete(Bytes.toBytes(num_pages + "+" + isbn));
 			tableNumPages.delete(delNumPages);
+			Delete delIsbn = new Delete(Bytes.toBytes(isbn));
+			tableIsbn.delete(delIsbn);
 
 		} catch (IOException e) {
 			System.out.println("IO Exception during delete");
