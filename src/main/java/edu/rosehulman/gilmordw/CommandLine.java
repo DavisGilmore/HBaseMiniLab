@@ -8,14 +8,6 @@ import org.apache.log4j.PatternLayout;
 
 public class CommandLine {
 
-	public CommandLine() {
-
-	}
-
-	public void run() {
-
-	}
-
 	public void loop() {
 		Scanner input = new Scanner(System.in);
 		HBaseConnection conn = new HBaseConnection();
@@ -197,8 +189,8 @@ public class CommandLine {
 	public static void initLogger() {
 		PatternLayout layout = new PatternLayout("%-5p %d %m%n");
 		FileAppender appender = new FileAppender();
-		appender.setName("PlayBall");
-		appender.setFile("playBall.log");
+		appender.setName("MiniLab");
+		appender.setFile("miniLab.log");
 		appender.activateOptions();
 		appender.setLayout(layout);
 		Logger.getRootLogger().addAppender(appender);
