@@ -232,7 +232,7 @@ public class HBaseConnection {
 
 			tableIsbn.put(put);
 
-			Put putTitle = new Put(Bytes.toBytes(isbn + "+" + title));
+			Put putTitle = new Put(Bytes.toBytes(title + "+" + isbn));
 			putTitle.addColumn(Bytes.toBytes("book"), Bytes.toBytes("num_pages"), Bytes.toBytes(numPages));
 
 			tableTitle.put(putTitle);
