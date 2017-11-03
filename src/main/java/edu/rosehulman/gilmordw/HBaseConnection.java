@@ -232,10 +232,10 @@ public class HBaseConnection {
 
 			tableIsbn.put(put);
 
-			Put putTitle = new Put(Bytes.toBytes(isbn));
+			Put putTitle = new Put(Bytes.toBytes(isbn + "+" + title));
 			putTitle.addColumn(Bytes.toBytes("book"), Bytes.toBytes("num_pages"), Bytes.toBytes(numPages));
 
-			tableNumPages.put(putTitle);
+			tableTitle.put(putTitle);
 
 			Delete delete = new Delete(Bytes.toBytes(old_num_pages + "+" + isbn));
 			tableNumPages.delete(delete);
@@ -246,7 +246,7 @@ public class HBaseConnection {
 			putNumPages.addColumn(Bytes.toBytes("book"), Bytes.toBytes("num_pages"), Bytes.toBytes(numPages));
 			putNumPages.addColumn(Bytes.toBytes("book"), Bytes.toBytes("authors"), Bytes.toBytes(authList));
 
-			tableTitle.put(putNumPages);
+			tableNumPages.put(putNumPages);
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
