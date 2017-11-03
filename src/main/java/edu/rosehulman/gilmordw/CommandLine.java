@@ -183,7 +183,7 @@ public class CommandLine {
 				String username = input.nextLine();
 				conn.numBooks(username);
 			} else {
-				System.out.println("hint");
+				System.out.println("Please enter one of the following commands: init, add book, delete book, search books, sort books, add borrower, edit borrower, search borrowers, checkout, checkin, book status, books borrowed");
 			}
 		}
 	}
